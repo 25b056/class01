@@ -1,0 +1,147 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMDM8ew8cSPeZw8sdaDKMrZ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/25b056/class01/blob/main/%ED%83%80%EC%9E%90%EA%B2%8C%EC%9E%84\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8KZ-0OfqPzBx",
+        "outputId": "8d964d5e-608e-4b49-b5ef-e09098fc47c8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "✨ 초등학생 타자 게임 ✨\n",
+            "준비되면 엔터를 누르세요!게임은 30초동안 진행됩니다!\n",
+            "\n",
+            "\n",
+            "다음 단어를 입력하세요: 동물\n",
+            "입력: 동물\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 과일\n",
+            "입력: 과일\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 바다\n",
+            "입력: 바다\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 나무\n",
+            "입력: 나무\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 친구\n",
+            "입력: 친구\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 나무\n",
+            "입력: 나무\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 과일\n",
+            "입력: 과일\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 꽃\n",
+            "입력: 꽃\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 나무\n",
+            "입력: 나무\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 바다\n",
+            "입력: 바다\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 가족\n",
+            "입력: 가족\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 가족\n",
+            "입력: 가족\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 학교\n",
+            "입력: 학교\n",
+            "👍 잘했어요!\n",
+            "\n",
+            "다음 단어를 입력하세요: 바다\n"
+          ]
+        }
+      ],
+      "source": [
+        "# prompt: 초등학생의 타자 수준에 맞춰 타자게임을 만들어줘. 게임을 끝내면, 타자수를 공개해줘.\n",
+        "\n",
+        "import random\n",
+        "import time\n",
+        "\n",
+        "def generate_word_for_beginner():\n",
+        "  \"\"\"초등학생 수준에 맞는 단어를 무작위로 생성합니다.\"\"\"\n",
+        "  words = [\"학교\", \"친구\", \"사랑\", \"가족\", \"행복\", \"공부\", \"놀이\", \"하늘\", \"구름\", \"바다\", \"산\", \"나무\", \"꽃\", \"과일\", \"동물\"]\n",
+        "  return random.choice(words)\n",
+        "\n",
+        "def typing_game_for_kids():\n",
+        "  \"\"\"초등학생을 위한 타자 게임을 실행합니다.\"\"\"\n",
+        "  print(\"✨ 초등학생 타자 게임 ✨\")\n",
+        "  print(\"준비되면 엔터를 누르세요!게임은 30초동안 진행됩니다!\")\n",
+        "  input()\n",
+        "\n",
+        "  total_words_typed = 0\n",
+        "  start_time = time.time()\n",
+        "  duration = 30  # 30초 (30초) 동안 게임 진행\n",
+        "\n",
+        "  while time.time() - start_time < duration:\n",
+        "    word_to_type = generate_word_for_beginner()\n",
+        "    print(f\"\\n다음 단어를 입력하세요: {word_to_type}\")\n",
+        "    user_input = input(\"입력: \")\n",
+        "\n",
+        "    if user_input == word_to_type:\n",
+        "      print(\"👍 잘했어요!\")\n",
+        "      total_words_typed += 1\n",
+        "    else:\n",
+        "      print(f\"😅 틀렸어요. 정답은 '{word_to_type}' 입니다.\")\n",
+        "\n",
+        "  end_time = time.time()\n",
+        "  elapsed_time = end_time - start_time\n",
+        "\n",
+        "  print(\"\\n--- 게임 종료 ---\")\n",
+        "  print(f\"총 타자 수: {total_words_typed}개\")\n",
+        "  print(f\"걸린 시간: {elapsed_time:.2f}초\") # 소수점 둘째 자리까지 표시\n",
+        "\n",
+        "typing_game_for_kids()\n"
+      ]
+    }
+  ]
+}
